@@ -1,0 +1,329 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #211329;
+}
+
+.birthday {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 20px 40px;
+  background:
+    radial-gradient(circle at 50% 45%, #70416f, transparent 55%),
+    linear-gradient(135deg, #211329, #482546, #24132f);
+  color: #fff0f5;
+  text-align: center;
+}
+
+.glow {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: #ff6fae;
+  filter: blur(150px);
+  opacity: .25;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.music-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 12px 20px;
+  border: 1px solid #ffb4d2;
+  border-radius: 30px;
+  color: white;
+  background: #ffffff18;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.intro,
+.letter-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 650px;
+  animation: fadeIn 1s ease;
+}
+
+.top-heart {
+  color: #ff8dbb;
+  font-size: 65px;
+  animation: heartbeat 1.5s infinite;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(35px, 7vw, 58px);
+  color: #ffe2ed;
+  margin: 10px 0;
+}
+
+.intro > p {
+  color: #e8bfd5;
+  margin: 15px 0 35px;
+}
+
+.envelope {
+  width: min(100%, 400px);
+  height: 240px;
+  margin: 0 auto 35px;
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  transition: transform .4s;
+}
+
+.envelope:hover {
+  transform: translateY(-8px);
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #f6b8d1;
+  border-radius: 12px;
+  box-shadow: 0 15px 45px #0005;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: #f9c6da;
+  clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+  border-radius: 10px;
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  background: #ffe0eb;
+  clip-path: polygon(0 0, 100% 0, 50% 65%);
+  transform-origin: top;
+  transition: transform .8s ease;
+}
+
+.letter {
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  top: 5%;
+  left: 7.5%;
+  background: #fff7fa;
+  color: #b34d79;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  border-radius: 8px;
+  transition: transform 1s ease;
+}
+
+.envelope-open .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-open .letter {
+  transform: translateY(-130px);
+}
+
+.seal {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #e94d8a;
+  border: 3px solid #ffb9d3;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  z-index: 2;
+  box-shadow: 0 5px 15px #a52c6044;
+  transition: opacity .3s;
+}
+
+.envelope-open .seal {
+  opacity: 0;
+}
+
+.open-btn {
+  padding: 14px 30px;
+  border: 0;
+  border-radius: 40px;
+  color: white;
+  background: linear-gradient(135deg, #ff70a8, #df4084);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 5px 25px #ff5d9b55;
+  transition: .3s;
+}
+
+.open-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 30px #ff5d9b88;
+}
+
+.bottom-text {
+  margin-top: 35px;
+  font-size: 14px;
+  color: #dca9c6;
+}
+
+.letter-content {
+  padding: 45px 30px;
+  background: #fff4f8;
+  color: #814361;
+  border-radius: 25px;
+  box-shadow: 0 20px 70px #0005;
+  animation: letterAppear 1s ease;
+}
+
+.letter-content h1 {
+  color: #bd5480;
+  font-size: clamp(36px, 7vw, 55px);
+}
+
+.letter-content h1 span {
+  display: block;
+  color: #ed659b;
+  font-size: 1.3em;
+}
+
+.cake {
+  font-size: 75px;
+  margin-bottom: 15px;
+  animation: bounce 2s infinite;
+}
+
+.small-title {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #b77c99;
+  margin-bottom: 20px;
+}
+
+.divider {
+  margin: 20px;
+  color: #eb77a5;
+  font-size: 25px;
+}
+
+.message {
+  line-height: 2.1;
+  font-size: 14px;
+  color: #81516a;
+}
+
+.wish {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 21px;
+  color: #d54d88;
+  margin-top: 25px;
+}
+
+.gift {
+  font-size: 35px;
+  margin: 25px 0;
+}
+
+.signature {
+  margin-bottom: 25px;
+  color: #ae7592;
+  font-size: 14px;
+}
+
+.floating-hearts span {
+  position: absolute;
+  bottom: -40px;
+  color: #ff9bc4;
+  font-size: 22px;
+  opacity: .5;
+  animation: floatUp linear infinite;
+  pointer-events: none;
+}
+
+.sparkle {
+  font-size: 40px;
+  color: #e99abb;
+  margin-bottom: 10px;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes letterAppear {
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes heartbeat {
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .envelope {
+    height: 190px;
+  }
+
+  .letter-content {
+    padding: 35px 18px;
+  }
+
+  .message {
+    font-size: 12px;
+  }
+
+  .music-btn {
+    top: 15px;
+    right: 15px;
+  }
+}
